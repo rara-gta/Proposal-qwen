@@ -11,13 +11,13 @@
 *{box-sizing:border-box}body{margin:0;font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--paper);color:var(--ink)}
 h1,h2,h3{line-height:1.15;margin:0}h2{font-size:24px;letter-spacing:-.02em}
 .kick{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);font-weight:700}
-#topbar{position:sticky;top:0;z-index:1200;background:var(--ink);color:#fff;display:flex;gap:10px;align-items:center;padding:10px 14px;flex-wrap:wrap}
+#topbar{position:sticky;top:0;z-index:1200;background:var(--ink);color:#fff;display:flex;gap:10px;align-items:center;padding:12px 14px;flex-wrap:wrap}
 #topbar .brand{font-weight:800;letter-spacing:.06em}
 #topbar .brand b{background:var(--acc);color:var(--ink);padding:2px 6px;border-radius:3px;margin-right:6px}
-#addr{flex:1;min-width:220px;padding:9px 12px;border-radius:6px;border:1px solid #333;background:#1e1e1e;color:#fff}
-.btn{cursor:pointer;border:0;border-radius:6px;padding:9px 14px;font-weight:700;background:var(--acc);color:var(--ink)}
+#addr{flex:1;min-width:220px;padding:12px;border-radius:6px;border:1px solid #333;background:#1e1e1e;color:#fff;font-size:16px}
+.btn{cursor:pointer;border:0;border-radius:6px;padding:12px 16px;font-weight:700;background:var(--acc);color:var(--ink);font-size:15px}
 .btn.ghost{background:transparent;color:#fff;border:1px solid #444}
-.chip{background:#222;border:1px solid #3a3a3a;border-radius:20px;padding:6px 12px;font-size:12px;color:var(--acc);font-weight:700}
+.chip{background:#222;border:1px solid #3a3a3a;border-radius:20px;padding:8px 12px;font-size:12px;color:var(--acc);font-weight:700}
 #doc{max-width:1020px;margin:26px auto 80px;padding:0 16px;display:flex;flex-direction:column;gap:22px}
 .sec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
 [contenteditable]{outline:none;border-radius:4px}
@@ -33,7 +33,7 @@ figure{margin:0;position:relative;border-radius:10px;overflow:hidden;border:1px 
 figure img{width:100%;height:170px;object-fit:cover;display:block}
 figure .del{position:absolute;top:6px;right:6px;background:#111c;color:#fff;border:0;border-radius:50%;width:24px;height:24px;cursor:pointer;opacity:.85}
 figure .cap{position:absolute;left:0;right:0;bottom:0;font-size:11px;padding:5px 8px;background:linear-gradient(transparent,#000c);color:#fff}
-.addbtn{border:1.5px dashed #b9b4a4;background:transparent;border-radius:10px;padding:10px;cursor:pointer;color:var(--mut);font-weight:600;width:100%}
+.addbtn{border:1.5px dashed #b9b4a4;background:transparent;border-radius:10px;padding:12px;cursor:pointer;color:var(--mut);font-weight:600;width:100%}
 iframe{width:100%;border:0;border-radius:10px;display:block}
 #mapbox{height:340px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
 .tiltwrap{perspective:900px}
@@ -56,11 +56,11 @@ ul{margin:8px 0 0;padding-left:18px}li{margin:3px 0}
 .ava{width:74px;height:74px;border-radius:50%;background:var(--ink);color:var(--acc);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:26px;overflow:hidden}
 .ava img{width:100%;height:100%;object-fit:cover}
 .note{font-size:12px;color:var(--mut)}
-#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--acc);padding:10px 18px;border-radius:30px;font-weight:700;z-index:2000;display:none}
+#toast{position:fixed;top:100px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--acc);padding:12px 20px;border-radius:30px;font-weight:700;z-index:2000;display:none;font-size:16px}
 .modal{position:fixed;inset:0;background:#000a;z-index:3000;display:flex;align-items:center;justify-content:center;padding:16px}
 .modal .box{background:var(--card);border-radius:14px;padding:26px;max-width:520px;width:100%}
 .modal label{display:block;margin:10px 0 4px;font-weight:700;font-size:13px}
-.modal input{width:100%;padding:9px;border:1px solid var(--line);border-radius:7px}
+.modal input{width:100%;padding:12px;border:1px solid var(--line);border-radius:7px;font-size:16px}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 @media print{#topbar,#toast,.no-print,.modal,.addbtn,figure .del{display:none!important}body{background:#fff}.sec{box-shadow:none;border-color:#ccc;break-inside:avoid}iframe{display:none}.printfallback{display:block!important}}
 .printfallback{display:none;font-size:13px;color:var(--mut);padding:8px;border:1px dashed #bbb;border-radius:8px}
@@ -70,7 +70,7 @@ ul{margin:8px 0 0;padding-left:18px}li{margin:3px 0}
 
 <div id="topbar" class="no-print">
   <span class="brand"><b>KNOWN</b> LISTING PROPOSAL STUDIO</span>
-  <input id="addr" placeholder="Type property address… e.g. 19 Cleghorn Avenue, Altona North VIC">
+  <input id="addr" placeholder="Type property address… e.g. 19 Cleghorn Ave, Altona North">
   <button class="btn" id="build">⚡ Build proposal</button>
   <span class="chip" id="chipComm">Commission: —</span>
   <button class="btn ghost" id="settings">Settings</button>
@@ -131,7 +131,21 @@ function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';cl
 function addD(n){const d=new Date();d.setDate(d.getDate()+n);return d}
 function fmt(d){return d.toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'})}
 function nextSat(d){const x=new Date(d),w=x.getDay();x.setDate(x.getDate()+((6-w+7)%7||7));return x}
-async function geocode(q){const r=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q='+encodeURIComponent(q));const j=await r.json();if(!j.length)throw 0;const a=j[0].address||{};return{lat:+j[0].lat,lon:+j[0].lon,suburb:a.suburb||a.city_district||a.town||a.village||a.city||'the area',city:a.city||a.town||a.village||'',state:a.state||'',display:j[0].display_name}}
+async function geocode(q){
+  try {
+    const r=await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q='+encodeURIComponent(q), {
+      headers: { 'User-Agent': 'KnownRE-ProposalStudio/1.0' }
+    });
+    if (!r.ok) throw new Error('Geocode failed: ' + r.status);
+    const j=await r.json();
+    if(!j.length) throw new Error('Address not found. Try adding the city/suburb.');
+    const a=j[0].address||{};
+    return {lat:+j[0].lat,lon:+j[0].lon,suburb:a.suburb||a.city_district||a.town||a.village||a.city||'the area',city:a.city||a.town||a.village||'',state:a.state||'',display:j[0].display_name};
+  } catch(e) {
+    alert('Location error: ' + e.message);
+    throw e;
+  }
+}
 function aerialURL(lon,lat,d){d=d||0.0045;return 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox='+(lon-d)+','+(lat-d*0.7)+','+(lon+d)+','+(lat+d*0.7)+'&bboxSR=4326&size=1200,760&imageSR=4326&format=jpg&f=image'}
 async function commons(q,n){try{const r=await fetch('https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrsearch='+encodeURIComponent(q)+'&gsrnamespace=6&gsrlimit='+(n||8)+'&prop=imageinfo&iiprop=url&iiurlwidth=900');const j=await r.json();const p=j.query&&j.query.pages?Object.values(j.query.pages):[];return p.sort((a,b)=>(a.index||0)-(b.index||0)).map(x=>x.imageinfo&&x.imageinfo[0]).filter(i=>i&&/\.(jpe?g|png|webp)$/i.test(i.thumburl||'')).map(i=>i.thumburl)}catch(e){return[]}}
 async function wiki(t){try{const r=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(t));const j=await r.json();return j.extract||''}catch(e){return ''}}
@@ -144,17 +158,14 @@ function renderDoc(addr,g,aURL,photos,suburbWiki){
  const yt='https://www.youtube-nocookie.com/embed?listType=search&list='+encodeURIComponent(g.suburb+' '+g.state+' aerial drone tour');
  const tl=[[0,'Proposal accepted — authority signed'],[2,'Styling & prep consultation'],[6,'Production day: photo, film, drone, 3D'],[10,'Campaign launch: portals, social, signage'],[12,'Inspections begin (Wed & Sat)'],[35,'Buyer deadline — offers reviewed'],[42,'AUCTION DAY']].map((m,i)=>{const d=i===6?nextSat(addD(42)):addD(m[0]);return '<li><b>'+fmt(d)+'</b><span contenteditable="true">'+m[1]+'</span></li>'}).join('');
  $('#doc').innerHTML=
- /* COVER */
  '<section class="cover"><img class="bg" src="'+aURL+'" alt="Aerial view"><div class="in">'+
  '<div class="kick" style="color:var(--acc)">Prepared exclusively for the owners · '+today+'</div>'+
  '<h1 contenteditable="true">'+esc(addr)+'</h1>'+
  '<p contenteditable="true" style="max-width:640px">A tailored sale strategy by <b>'+esc(A.name)+'</b> · '+esc(A.agency)+' — “We’re not here to blend in. We’re here to set a standard.”</p></div></section>'+
- /* LETTER */
  '<section class="sec"><div class="kick">01 · A personal word</div><h2 contenteditable="true">Why this home will sell well — and how</h2>'+
  '<div contenteditable="true" style="margin-top:12px"><p>Thank you for the opportunity to present how I would sell '+esc(addr)+'. You don’t need another agent who lists homes — you need a campaign that makes buyers compete. At '+esc(A.agency)+', every listing is built with intent: exceptional photography, film, and digital reach that finds the right buyers and earns the right kind of attention.</p>'+
  '<p>Over the last 12 months I’ve sold 51 properties at a $1.19M median, with a 5.0★ rating from 55 client reviews. I live locally in Altona — I know the buyers, the streets, and the price points, because I’m part of the area, not just working in it.</p>'+
  '<p>Below is my recommended strategy, the marketing investment required upfront, the exact timeline, and my commission — everything in plain sight, nothing hidden. — '+esc(A.name)+'</div></section>'+
- /* MEDIA */
  '<section class="sec"><div class="kick">02 · The property, in film & flight</div><h2>Auto-curated media wall</h2>'+
  '<p class="note">Pulled automatically for '+esc(g.suburb)+' — aerial imagery (Esri/Maxar), local photography (Wikimedia Commons), area film (YouTube). Hover the aerial for the 3D view. Remove or add anything with one click.</p>'+
  '<div class="grid g3" id="phgrid" style="margin-top:14px">'+photoWall+'<button class="addbtn no-print" data-act="add" data-kind="photo" data-target="phgrid">+ Add photo / video manually</button></div>'+
@@ -164,28 +175,23 @@ function renderDoc(addr,g,aURL,photos,suburbWiki){
  '<button class="addbtn no-print" style="margin-top:8px" data-act="link3d">+ Paste Matterport / 3D tour link</button><div id="tour3d"></div></div></div>'+
  '<div class="grid g2" style="margin-top:14px"><div><div class="kick">Area film</div><iframe style="margin-top:6px" height="220" src="'+yt+'"></iframe><div class="printfallback">Area film: search “'+esc(g.suburb)+' aerial drone tour” on YouTube.</div></div>'+
  '<div><div class="kick">Interactive aerial map</div><div id="mapbox" style="margin-top:6px"></div></div></div></section>'+
- /* MARKET */
  '<section class="sec"><div class="kick">03 · Market snapshot — '+esc(g.suburb)+'</div>'+
  '<div contenteditable="true" style="margin-top:8px">'+(suburbWiki?('<p>'+esc(suburbWiki)+'</p>'):'<p>'+esc(g.suburb)+' sits within '+esc(g.state)+', a tightly held and highly searchable pocket where well-presented family homes consistently outperform. <i>(Draft — edit freely.)</i></p>')+'</div>'+
  '<div class="grid g3" style="margin-top:12px">'+
  '<div class="stat"><b contenteditable="true">$1.19M</b><span>Nik’s 12-mo median sale — edit to suburb CMA</span></div>'+
  '<div class="stat"><b contenteditable="true">24 days</b><span>Median days advertised (houses, Nik’s last 12 mo)</span></div>'+
  '<div class="stat"><b contenteditable="true">$1.10M – $1.25M</b><span>Recommended price range — your CMA</span></div></div></section>'+
- /* STRATEGY */
  '<section class="sec"><div class="kick">04 · Recommended sale method</div>'+
  '<div class="row no-print" style="margin:10px 0">Market temperature: <select id="mtemp"><option value="hot">Hot</option><option value="balanced" selected>Balanced</option><option value="cool">Cooling</option></select><span class="note">Recommendation adjusts automatically; override by clicking any card.</span></div>'+
  '<div class="grid g3" id="mcards">'+Object.keys(METHODS).map(k=>{const m=METHODS[k];return '<div class="mcard" data-act="method" data-m="'+k+'" style="cursor:pointer"><span class="badge" style="display:none">Recommended</span><h3>'+m.name+'</h3><ul>'+m.pros.map(p=>'<li>✔ '+p+'</li>').join('')+m.cons.map(c=>'<li>✖ '+c+'</li>').join('')+'</ul></div>'}).join('')+'</div>'+
  '<p id="mwhy" contenteditable="true" style="margin-top:14px"></p></section>'+
- /* PACKAGES */
  '<section class="sec"><div class="kick">05 · Marketing options & upfront spend</div>'+
  '<p class="note">Three campaign tiers. Click to select — your choice flows into the disclosure below. All figures editable.</p>'+
  '<div class="grid g3" style="margin-top:14px">'+PKGS.map((p,i)=>'<div class="pcard" data-act="pkg" data-i="'+i+'" style="cursor:pointer"><span class="badge" style="display:none">Selected</span><h3>'+p.name+'</h3><div class="kick">'+p.tag+'</div><div style="font-size:26px;font-weight:800;margin:8px 0">'+aud(p.total)+'</div><ul contenteditable="true">'+p.items.map(it=>'<li>'+it[0]+' — '+aud(it[1])+'</li>').join('')+'</ul></div>').join('')+'</div></section>'+
- /* DISCLOSURE */
  '<section class="sec"><div class="kick">06 · Full disclosure — spend & timeline</div><h2>What you pay, and when</h2>'+
  '<div id="discBody" style="margin-top:12px"></div>'+
  '<div class="kick" style="margin:22px 0 8px">Campaign timeline (auto-dated from today)</div><ol class="tl">'+tl+'</ol>'+
  '<p class="note" contenteditable="true" style="margin-top:12px">Marketing spend is payable upfront at campaign launch. Commission is payable only on successful settlement — never upfront. Figures are estimates; final supplier quotes supplied before signing.</p></section>'+
- /* AGENT */
  '<section class="sec"><div class="kick">07 · Your agent</div>'+
  '<div class="agenthead"><div class="ava">'+(A.photo?'<img src="'+A.photo+'">':esc(A.name.split(' ').map(w=>w[0]).join(''))+'</div>'+
  '<div><h2 contenteditable="true">'+esc(A.name)+' — '+esc(A.role)+'</h2><div contenteditable="true">'+esc(A.agency)+' · '+esc(A.phone)+' · '+esc(A.email)+' · '+esc(A.web)+'</div></div></div>'+
@@ -195,7 +201,6 @@ function renderDoc(addr,g,aURL,photos,suburbWiki){
  '<div class="stat"><b>$53.9M</b><span>total sales value · 8+ yrs RE, 16 yrs prestige automotive</span></div></div>'+
  '<div class="tags" contenteditable="true"><span>Genuine (42)</span><span>Professional (41)</span><span>Trustworthy (37)</span><span>Great communicator (32)</span><span>Reliable (29)</span><span>Suburb specialist (28)</span><span>Great negotiator (11)</span></div>'+
  '<div contenteditable="true" style="margin-top:14px"><p>“Nik lives locally in Altona and knows the area in a way that comes from being part of it, not just working in it.” Backed by Director & Auctioneer William Pendlebury (0458 585 585) on the gavel, and a team that is precise in detail, responsive in action, measured in delivery.</p></div></section>'+
- /* NEXT */
  '<section class="sec"><div class="kick">08 · Next steps</div>'+
  '<div contenteditable="true"><p>1. Approve this strategy & sign the authority &nbsp;·&nbsp; 2. Styling consult (day 2) &nbsp;·&nbsp; 3. Production day (day 6) &nbsp;·&nbsp; 4. Launch (day 10) &nbsp;·&nbsp; 5. Auction day — see timeline above.</p>'+
  '<p style="margin-top:18px">Commission: <b data-bind="commission">'+esc(A.commission||'—')+'%</b> (payable on settlement only). Prepared by <b data-bind="name">'+esc(A.name)+'</b> · <b>'+esc(A.agency)+'</b>, '+esc(A.office)+'.</p>'+
@@ -224,15 +229,39 @@ $('#doc').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if
  if(a==='link3d'){const u=prompt('Paste Matterport / 3D tour URL:');if(u)$('#tour3d').innerHTML='<iframe height="260" src="'+esc(u)+'" style="margin-top:8px"></iframe>'}
 });
 $('#file').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const t=$('#'+pending);if(t){t.insertAdjacentHTML('beforebegin',fig(r.result,f.name));save()}};r.readAsDataURL(f);e.target.value=''});
-$('#build').addEventListener('click',async()=>{if(!CFG.commission){openSetup(true);return}const addr=$('#addr').value.trim();if(!addr)return toast('Enter an address first');$('#build').disabled=true;try{
- toast('📍 Locating property…');const g=await geocode(addr);
- toast('🛰 Fetching aerial & 3D imagery…');const aURL=aerialURL(g.lon,g.lat);
- toast('📸 Curating local photos & film…');let ph=await commons(g.suburb+' '+g.state,8);if(ph.length<3)ph=ph.concat(await commons(g.city+' '+g.state,8));
- toast('✍️ Writing strategy & timeline…');const w=await wiki(g.suburb);
- LAST={addr,geo:g,aURL};renderDoc(addr,g,aURL,ph.slice(0,8),w);save();toast('✅ Proposal ready — click any text to edit');
-}catch(err){toast('⚠️ Could not locate that address — check spelling')}$('#build').disabled=false});
+$('#build').addEventListener('click',async()=>{
+  if(!CFG.commission){openSetup(true);return;}
+  const addr=$('#addr').value.trim();
+  if(!addr){alert('Please type an address first.'); return;}
+  
+  const btn = $('#build');
+  btn.disabled = true;
+  btn.textContent = '⏳ Fetching media...';
+  
+  try {
+    const g = await geocode(addr);
+    btn.textContent = '⏳ Curating photos...';
+    let ph = await commons(g.suburb+' '+g.state,8);
+    if(ph.length<3) ph = ph.concat(await commons(g.city+' '+g.state,8));
+    
+    btn.textContent = '⏳ Building proposal...';
+    const w = await wiki(g.suburb);
+    const aURL = aerialURL(g.lon,g.lat);
+    
+    LAST={addr,geo:g,aURL};
+    renderDoc(addr,g,aURL,ph.slice(0,8),w);
+    save();
+    btn.textContent = '⚡ Build proposal';
+    btn.disabled = false;
+    window.scrollTo(0,0);
+  } catch(err) {
+    alert('Something went wrong: ' + err.message);
+    btn.textContent = '⚡ Build proposal';
+    btn.disabled = false;
+  }
+});
 $('#save').addEventListener('click',()=>{save();toast('💾 Saved on this device')});
-$('#print').addEventListener('click',()=>window.print);
+$('#print').addEventListener('click',()=>window.print());
 $('#print').addEventListener('click',()=>window.print());
 $('#dl').addEventListener('click',()=>{const mb=$('#mapbox');const keep=mb?mb.innerHTML:'';if(mb&&LAST)mb.innerHTML='<img src="'+LAST.aURL+'" style="width:100%;height:340px;object-fit:cover">';const html='<!doctype html>'+document.documentElement.outerHTML;if(mb)mb.innerHTML=keep;const b=new Blob([html],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Listing-Proposal-KNOWN-RE.html';a.click();toast('⬇️ Standalone proposal downloaded')});
 $('#new').addEventListener('click',()=>{if(confirm('Start a new proposal? (Saved copy will be replaced)')){localStorage.removeItem(LS_DOC);$('#doc').innerHTML='';LAST=null;$('#addr').value=''}});
